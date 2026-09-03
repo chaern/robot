@@ -1,7 +1,7 @@
 
 from neuromeka import IndyDCP3
 import time
-ROBOT_IP = "192.168.3.2"
+ROBOT_IP = "192.168.3.6"
 indy = IndyDCP3(ROBOT_IP)
 PICK_BASE = [ 207.42805,    310.04932,    408.53357]
 PLACE_BASE = [   154.8543564286797,    326.10252214202605,    410.56767700108]
@@ -18,7 +18,7 @@ ROTATION_PLACE = ROTATION_PICK.copy()
 # ROTATION_PLACE = [ 1.96,   -177.90,  3.90 ]
 MOVE_VEL = 70
 MOVE_ACC = 30
-VACUUM_DO = 2
+VACUUM_DO = 1
 # 응답 결과 확인
 def check_result(result, command_name):
     if isinstance(result, dict):

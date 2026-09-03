@@ -1,6 +1,6 @@
 from neuromeka import IndyDCP3, TaskBaseType
 import time
-ROBOT_IP = "192.168.3.2"
+ROBOT_IP = "192.168.3.6"
 indy = IndyDCP3(ROBOT_IP)
 def wait_move_done():
     print("이동 완료 대기 중...")
@@ -32,7 +32,7 @@ try:
     current_p = indy.get_control_state()["p"]
     print("이동 전 TCP 위치 =", current_p)
     # 현재 TCP에서 Tool Z축 방향으로 +10mm 이동
-    move_tool( [  0.0,  0.0,  30.0,  0.0, 0.0,  0.0  ] )
+    move_tool( [  0.0,  -10.0,  -30.0,  10.0, 0.0,  0.0  ] )
     # 이동 후 위치 출력
     current_p = indy.get_control_state()["p"]
     print("이동 후 TCP 위치 =", current_p)

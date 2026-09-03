@@ -1,7 +1,7 @@
 
 from neuromeka import IndyDCP3
 import time
-ROBOT_IP = "192.168.3.2"
+ROBOT_IP = "192.168.3.6"
 indy = IndyDCP3(ROBOT_IP)
 def print_current_position():
     try:
