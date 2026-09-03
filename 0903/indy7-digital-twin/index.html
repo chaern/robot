@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indy7 Digital Twin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">N</span>
+        <div><strong>INDY7</strong><span>DIGITAL TWIN</span></div>
+      </div>
+      <div class="connection"><i></i><span>SIMULATION</span><b>192.168.3.6</b></div>
+      <div class="clock" id="clock">--:--:--</div>
+    </header>
+
+    <section class="workspace">
+      <aside class="left-panel panel">
+        <div class="panel-title"><span>작업 셀</span><small>PALLETIZING</small></div>
+        <div class="metric hero-metric">
+          <span>작업 진행률</span>
+          <strong id="progressValue">0%</strong>
+          <div class="progress"><i id="progressBar"></i></div>
+          <small id="cycleCount">0 / 8 CYCLES</small>
+        </div>
+
+        <div class="section-label">현재 단계</div>
+        <div class="phase-card">
+          <span class="phase-index" id="phaseIndex">00</span>
+          <div><strong id="phaseName">대기</strong><small id="phaseDetail">시뮬레이션 준비 완료</small></div>
+        </div>
+
+        <div class="section-label">TCP 위치</div>
+        <div class="coordinates">
+          <div><span>X</span><strong id="tcpX">0.00</strong><small>mm</small></div>
+          <div><span>Y</span><strong id="tcpY">0.00</strong><small>mm</small></div>
+          <div><span>Z</span><strong id="tcpZ">0.00</strong><small>mm</small></div>
+        </div>
+
+        <div class="section-label">툴 상태</div>
+        <div class="tool-state">
+          <div class="gripper-icon" id="gripperIcon"><i></i><i></i></div>
+          <div><strong id="gripperText">OPEN</strong><small>DO.0 ON · DO.1 OFF</small></div>
+        </div>
+      </aside>
+
+      <section class="viewport-wrap">
+        <canvas id="scene"></canvas>
+        <div class="view-title"><span>LIVE CELL VIEW</span><small>마우스 드래그: 회전 · 휠: 확대</small></div>
+        <div class="axis-legend"><i class="x"></i>X <i class="y"></i>Y <i class="z"></i>Z</div>
+        <div class="view-badge">6-AXIS COBOT</div>
+      </section>
+
+      <aside class="right-panel panel">
+        <div class="panel-title"><span>모션 제어</span><small>OFFLINE</small></div>
+        <div class="mode-switch"><button class="active">AUTO</button><button>MANUAL</button></div>
+
+        <div class="section-label">관절 상태</div>
+        <div id="jointList" class="joint-list"></div>
+
+        <div class="section-label">속도 설정</div>
+        <div class="speed-row"><input id="speed" type="range" min="10" max="100" value="35"><strong id="speedValue">35%</strong></div>
+
+        <div class="section-label">팔렛 레시피</div>
+        <div class="recipe-grid">
+          <div><span>배열</span><strong>2 × 2 × 2</strong></div>
+          <div><span>간격</span><strong>80 mm</strong></div>
+          <div><span>단 높이</span><strong>30 mm</strong></div>
+          <div><span>회수</span><strong>TCP -Z 100</strong></div>
+        </div>
+
+        <div class="controls">
+          <button id="resetBtn" class="secondary">RESET</button>
+          <button id="stepBtn" class="secondary">STEP</button>
+          <button id="runBtn" class="primary"><span>▶</span> RUN</button>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <div><i class="ok"></i><span>COLLISION MONITOR</span><strong>CLEAR</strong></div>
+      <div><i class="ok"></i><span>WORKSPACE</span><strong>NOMINAL</strong></div>
+      <div><i></i><span>APPROACH</span><strong>100 mm</strong></div>
+      <p>SIMULATION ONLY · 실제 로봇 명령을 전송하지 않습니다</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
