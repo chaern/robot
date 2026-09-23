@@ -1,0 +1,9 @@
+from tkinter import *
+
+win = Tk()
+win.geometry("300x300")
+win.title("cherry")
+
+label1= Label(win, text="GOOD")
+label1.pack(side="right")
+win.mainloop()

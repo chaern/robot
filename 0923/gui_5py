@@ -1,0 +1,16 @@
+from tkinter import *
+
+win = Tk()  
+win.geometry("300x300")
+win.title("cherry")
+
+chkvar=IntVar()#chkvar에 int형으로 값을 저장한다
+chkbox=Checkbutton(win, text= "오늘하루 보지 않기", variable=chkvar)
+#chkbox.select()#자동선택처리
+#chkbox.deselect()#자동 해제 처리
+chkbox.pack()
+def btncmd():
+    print(chkvar.get())#0:체크해제 1:체크
+btn=Button(win, text="클릭", command=btncmd)
+btn.pack()
+win.mainloop()  #창 실행

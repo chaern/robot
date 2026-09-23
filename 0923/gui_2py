@@ -1,0 +1,18 @@
+#import thinter로 사용시 win=Tk()로 사용하면 에러 발생 한다
+#win = thinter.Tk()로 사용 해야 한다 매우 중요
+from tkinter import * #gui(graphical user interface)
+win=Tk() #창 생성
+win.geometry("400x400") #창 크기
+win.title("jang") #창 제목txt.insert("1.0, "글자를 입력 하세요")
+txt = Text(win, width = 30, height = 5)
+txt.insert("1.0", "글자를 입력 하세요")
+txt.pack()
+e = Entry(win,width=30)
+e.pack()
+e.insert(0,"한 줄만 ")
+def btncmd():
+    print(txt.get("1.0", END)) #처음부터 끝까지 문자를 가져옴 1은 첫번째라인 0은 컬럼위치
+    print(e.get())
+btn=Button(win, text="클릭", command=btncmd)
+btn.pack()
+win.mainloop() #창 실행
