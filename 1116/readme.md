@@ -1,4 +1,4 @@
-# Indy7 MQTT / PLC 제어 실습 (11월 16일)
+# Indy7 MQTT / PLC 제어 실습
 
 Mosquitto MQTT 브로커를 이용해 PowerShell 또는 PLC에서 명령을 보내고, Python 프로그램이 명령을 해석해 Indy7을 제어하는 예제입니다.
 
